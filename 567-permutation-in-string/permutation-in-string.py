@@ -4,14 +4,24 @@ class Solution:
         m=len(s2)
         if m<n:
             return False
-        c=Counter(s1)
-        s=""
-        
-        for i in range(0,m-n+1):
-            s=s2[i:i+n]
-            if c==Counter(s):
+        target = Counter(s1)
+        window = Counter(s2[:n])
+
+        if window == target:
+            return True
+
+        for i in range(n, m):
+           
+            window[s2[i]] += 1 # Add new character
+
+           
+            left = s2[i - n] # Remove leftmost character
+            window[left] -= 1
+
+            if window[left] == 0:
+                del window[left]
+
+            if window == target:
                 return True
-                break
+
         return False
-            
-        
