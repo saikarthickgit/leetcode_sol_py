@@ -8,6 +8,6 @@ class Solution:
 
         for key, count in c.most_common(k):
             result.append(key)
-            a.append(count)
+            #a.append(count)
   
         return result
