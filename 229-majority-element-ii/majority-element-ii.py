@@ -2,15 +2,15 @@ class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
         ans=[]
         cand1, cand2 = None, None
-        count1, count2 = 0, 0
+        count1, count2 = 0, 0. 
         for num in nums:
-            if num == cand1:
+            if num == cand1:#initial count
                 count1 += 1
-            elif num == cand2:
+            elif num == cand2:#initial count
                 count2 += 1
-            elif count1 == 0:
+            elif count1 == 0:# interchangeing the highest number when a number count reaches 0
                 cand1, count1 = num, 1
-            elif count2 == 0:
+            elif count2 == 0:# interchangeing the highest number when a number count reaches 0
                 cand2, count2 = num, 1
             else:
                 count1 -= 1
