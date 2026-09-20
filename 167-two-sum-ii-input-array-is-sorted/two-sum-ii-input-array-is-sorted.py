@@ -10,6 +10,6 @@ class Solution:
                 j-=1
             else:
                 i+=1
-        return []
+        return [i,j]
 
         
