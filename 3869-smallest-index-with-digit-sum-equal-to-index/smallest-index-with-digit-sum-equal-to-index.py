@@ -1,15 +1,15 @@
 class Solution:
     def smallestIndex(self, nums):
 
+        def repeat_it(nums):
+            temp=0
+            while nums>0:
+                temp+=nums%10
+                nums=nums//10
+            return temp
+    
         for i in range(len(nums)):
-            x = nums[i]
-            total = 0
-
-            while x > 0:
-                total += x % 10
-                x //= 10
-
-            if total == i:
+            if i == repeat_it(nums[i]):
                 return i
-
         return -1
+    
