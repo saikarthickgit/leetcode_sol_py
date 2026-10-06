@@ -1,15 +1,18 @@
 class Solution:
     def minAddToMakeValid(self, s: str) -> int:
-        open = 0
-        ans = 0
-
-        for c in s:
-            if c == '(':
-                open += 1
-            else:
-                if open > 0:
-                    open -= 1
+        count = 0   
+        count1 = 0  
+        
+        for i in s:
+            if i == "(":
+                count += 1
+            elif i == ")":
+                if count > 0:
+                   
+                    count -= 1
                 else:
-                    ans += 1
-
-        return ans + open
+                  
+                    count1 += 1
+                    
+      
+        return count + count1
