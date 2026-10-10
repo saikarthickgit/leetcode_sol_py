@@ -8,19 +8,18 @@ class Solution:
         while i < n:
             if s[i] == "(":
                 stack.append("(")
-            else: # s[i] == ")"
-                # Check if we have a double '))'
+            else: 
                 if i + 1 < n and s[i+1] == ")":
-                    i += 1 # We have '))', skip the next index
+                    i += 1 
                 else:
-                    count += 1 # We only had one ')', we need to insert another ')'
+                    count += 1
                     
-                # Now try to match this '))' with a '(' from the stack
+               
                 if stack:
-                    stack.pop() # Match found
+                    stack.pop() 
                 else:
-                    count += 1 # No '(' in stack, we must insert one
+                    count += 1 
             i += 1
             
-        # For any '(' left in the stack, we need to insert two ')'
+   
         return count + (len(stack) * 2)
