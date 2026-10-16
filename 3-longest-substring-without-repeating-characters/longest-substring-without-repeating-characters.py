@@ -1,14 +1,14 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        seen = {}
-        left = 0
-        maxi = 0  
+        temp = []
+        maxi = 0
         
-        for i, j in enumerate(s):
-            if j in seen and seen[j] >= left:
-                left = seen[j] + 1
+        for char in s:
+            # Keep popping from the FRONT (queue behavior) until the duplicate is gone
+            while char in temp:
+                temp.pop(0) 
                 
-            seen[j] = i
-            maxi = max(maxi, i - left + 1)
+            temp.append(char)
+            maxi = max(maxi, len(temp))
             
         return maxi
